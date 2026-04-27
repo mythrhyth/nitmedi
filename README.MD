@@ -1,132 +1,181 @@
-NITMedi – Medical Center Management System
+````md
+# NITMedi – Medical Center Management System
 
-Overview
+## Overview
 
 NITMedi is a full-stack Medical Center Management System developed for NIT Meghalaya.
-It enables administrators and users (doctors/nurses) to manage patient records, consultations, and medicines in a secure, professional, and efficient way.
+
+It enables administrators and consultants (doctors/nurses) to manage patient records, consultations, and medicines in a secure, professional, and efficient way.
+
 The project is built using:
 
-Frontend: HTML, CSS, JavaScript
-Backend: PHP (with PDO for database interactions)
-Database: MySQL
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** PHP (PDO for secure database interactions)
+- **Database:** MySQL
 
+---
 
-Features
+## Features
 
-User Roles
+## User Roles
 
-Admin
+### Admin
 
-  Manage students, teachers, and staff (add, update, delete).
-  Manage medicine inventory (add, update, delete).
-  View consultation records.
+- Manage students, teachers, and staff (Add / Update / Delete)
+- Manage medicine inventory (Add / Update / Delete)
+- View consultation records
 
-Consultant (Doctor/Nurse)
+### Consultant (Doctor/Nurse)
 
-  Manage consultations with patients.
-  Add consultation notes, diagnosis, and prescribed medicines.
-  Automatically calculate medicine totals.
+- Manage patient consultations
+- Add consultation notes, diagnosis, and prescribed medicines
+- Automatically calculate medicine totals
 
+---
 
-Database Design
+## Database Design
 
-Core Tables
+## Core Tables
 
-1. users
+### 1. `users`
 
-   Stores login credentials and roles (Admin/Consultant).
+Stores login credentials and role-based access for Admin and Consultant users.
 
-2. patients
+### 2. `patients`
 
-   Stores student, teacher, and staff details.
+Stores student, teacher, and staff details.
 
-3. consultations
+### 3. `consultations`
 
-   Stores consultation records linked to patients and users.
+Stores consultation records linked to patients and consultants.
 
-4. medicines
+### 4. `medicines`
 
-   Stores available medicines with price and stock information.
+Stores medicine details including stock quantity and pricing.
 
-5. medicines
+### 5. `consultation_medicines`
 
-   Links consultations with prescribed medicines and quantities.
+Links consultations with prescribed medicines and quantities.
 
+---
 
-Installation
+## Installation
 
-Prerequisites
+## Prerequisites
 
-PHP >= 8.0
-MySQL >= 5.7
-Apache/Nginx server (e.g., XAMPP, Laragon, WAMP)
-Git installed
+Make sure you have the following installed:
 
-Steps
+- PHP >= 8.0
+- MySQL >= 5.7
+- Apache / Nginx Server (XAMPP, LarTgon, or WAMP recommended)
+- Git
 
-1. Clone the repository:
+---
 
-   bash
-   git clone https://github.com/your-username/NITMedi.git
-   cd NITMedi
-   
+## Setup Steps
 
-2. Copy the example config and set up your database credentials:
+### 1. Clone the Repository
 
-   bash
-   cp db/config.example.php db/config.php
-   
+```bash
+git clone https://github.com/your-username/NITMedi.git
+cd NITMedi
+````
 
-   Edit `config.php` with your MySQL username, password, and database name.
+### 2. Configure Database Connection
 
-3. Import the database schema (SQL file provided in `/db/schema.sql`) into MySQL.
+Copy the example config file:
 
-4. Start your local server (e.g., with Laragon/XAMPP) and open:
+```bash
+cp db/config.example.php db/config.php
+```
 
+Then edit `config.php` and update your MySQL credentials:
 
-   http://localhost/medical_center/
+* Database name
+* Username
+* Password
 
+---
 
+### 3. Import Database Schema
 
-Project Structure
+Import the SQL file provided in:
 
+```bash
+/db/schema.sql
+```
+
+into your MySQL database.
+
+---
+
+### 4. Run the Project
+
+Start your local server (XAMPP / Laragon / WAMP) and open:
+
+```text
+http://localhost/medical_center/
+```
+
+---
+
+## Project Structure
+
+```text
 NITMedi/
 │
 ├── admin/                  # Admin panel pages
 ├── consultant/             # Consultant dashboard
 ├── db/                     # Database configuration and schema
-│   ├── config.php          # Your actual config (not pushed to GitHub)
-│   └── config.example.php  # Example config (safe to push)
-├── includes/               # Shared functions
+│   ├── config.php          # Actual DB config (not pushed to GitHub)
+│   └── config.example.php  # Example config (safe for GitHub)
+│
+├── includes/               # Shared helper functions
 ├── index.php               # Landing page with role selection
-├── dashboard.php           # Consultant/Admin dashboard
+├── dashboard.php           # Main Consultant/Admin dashboard
 └── README.md               # Project documentation
+```
 
+---
 
+## Security Notes
 
+* Never push `db/config.php` to GitHub
+* Only `config.example.php` should be included in the repository
+* Passwords should always be hashed using `password_hash()`
+* Use prepared statements (PDO) to prevent SQL injection attacks
 
-Security Notes
+---
 
-Do not push `db/config.php` to GitHub. Only `config.example.php` should be included.
-Passwords should always be hashed (e.g., using `password_hash()`).
-Use prepared statements (PDO) for all database queries to prevent SQL injection.
+## Contribution Guidelines
 
+### 1. Fork the Repository
 
-Contribution Guidelines
+### 2. Create a New Branch
 
-1. Fork the repository.
-2. Create a new branch for your feature/fix:
+```bash
+git checkout -b feature-name
+```
 
-   bash
-   git checkout -b feature-name
-   
-3. Commit your changes with clear messages.
-4. Push to your branch and create a pull request.
+### 3. Commit Your Changes
 
+Use clear and meaningful commit messages.
 
-License
+### 4. Push and Create Pull Request
 
-This project is licensed under the MIT License.
+Push your branch and open a Pull Request.
 
+---
 
+## License
 
+This project is licensed under the **MIT License**.
+
+---
+
+## Author
+
+Developed for **NIT Meghalaya** as a Medical Center Management System project.
+
+```
+```
