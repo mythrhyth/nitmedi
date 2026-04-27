@@ -1,4 +1,4 @@
-````md
+
 # NITMedi – Medical Center Management System
 
 ## Overview
