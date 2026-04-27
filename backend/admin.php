@@ -83,7 +83,7 @@ $patient_consultations = $pdo->prepare("
     LEFT JOIN students s ON c.patient_type = 'Student' AND c.patient_id = s.student_id
     LEFT JOIN faculty f ON c.patient_type = 'Faculty' AND c.patient_id = f.faculty_id
     LEFT JOIN staff st ON c.patient_type = 'Staff' AND c.patient_id = st.staff_id
-    LEFT JOIN users u ON c.consultant_id = u.user_id
+    LEFT JOIN users u ON c.user_id = u.user_id
     WHERE c.consultation_date BETWEEN ? AND ?
     ORDER BY c.consultation_date DESC, c.total_price DESC
 ");
